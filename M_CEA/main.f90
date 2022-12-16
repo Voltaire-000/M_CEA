@@ -15,6 +15,24 @@ program hello
     
     Write(*, 99001)
     Read(*, 99002)prefix
+    ln = INDEX(prefix, ' ') -1
+    infile = prefix(1:ln)//'.inp'
+    ofile = prefix(1:ln)//'.out'
+    Pfile = prefix(1:ln)//'.plt'
+    INQUIRE (FILE = infile, EXIST = ex)
+    if(.NOT.ex)then
+        print *, infile, 'Not found'
+        GOTO 400
+    endif
+    if(ex)then
+        print *, infile, 'found the file'
+    endif
+    readok = .true.
+    Newr = .false.
+    
+    
+        
+400 Stop        
     
     
 99001 FORMAT(//'Enter input file name'//)
